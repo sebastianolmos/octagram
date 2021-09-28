@@ -1,0 +1,45 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"extern/googletest/googlemock/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "gmock_main::@0ba0acb845faf95c7eab"
+		},
+		{
+			"id" : "gmock::@0ba0acb845faf95c7eab"
+		},
+		{
+			"id" : "gtest::@cd6fe4ca901feadd7fe5"
+		},
+		{
+			"id" : "gtest_main::@cd6fe4ca901feadd7fe5"
+		}
+	],
+	"id" : "ALL_BUILD::@0ba0acb845faf95c7eab",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "extern/googletest/googlemock",
+		"source" : "extern/googletest/googlemock"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

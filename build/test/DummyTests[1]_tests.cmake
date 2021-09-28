@@ -1,0 +1,5 @@
+add_test( DummyPolygon.TestSimple D:/projects/octagram/build/test/Debug/DummyTests.exe [==[--gtest_filter=DummyPolygon.TestSimple]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DummyPolygon.TestSimple PROPERTIES WORKING_DIRECTORY D:/projects/octagram/build/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( DummyPoint.TestSimple2 D:/projects/octagram/build/test/Debug/DummyTests.exe [==[--gtest_filter=DummyPoint.TestSimple2]==] --gtest_also_run_disabled_tests)
+set_tests_properties( DummyPoint.TestSimple2 PROPERTIES WORKING_DIRECTORY D:/projects/octagram/build/test SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( DummyTests_TESTS DummyPolygon.TestSimple DummyPoint.TestSimple2)

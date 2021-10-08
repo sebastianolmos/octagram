@@ -4,6 +4,6 @@
 TEST(DummyPoint, TestSimple2)
 {   
     int t = 1;
-    point p1(t);
-    EXPECT_EQ(p1.getX(), t);
+    Point<int> p1(1, 2);
+    EXPECT_EQ(t, p1.getX());
 }

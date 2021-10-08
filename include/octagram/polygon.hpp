@@ -1,10 +1,13 @@
-class polygon
-{
-    private:
-        int mVariable;
-    public:
-        polygon();
-        polygon(int v);
+#pragma once
+#include "point.hpp"
+#include <vector>
+using namespace std;
 
-        void set(int v);
+class Polygon
+{
+    public:
+        void addPoint(Point<int>& point);
+        int getSize();
+    private:
+        vector<Point<int>> points;
 };

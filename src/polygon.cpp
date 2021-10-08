@@ -1,11 +1,11 @@
 #include <octagram/polygon.hpp>
 
-polygon::polygon(int v)
+void Polygon::addPoint(Point<int>& point)
 {
-    this->mVariable = v;
+	points.push_back(point);
 }
 
-void polygon::set(int v)
+int Polygon::getSize()
 {
-    this->mVariable = v;
+    return this->points.size();
 }

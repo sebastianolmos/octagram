@@ -4,6 +4,6 @@
 TEST(DummyPolygon, TestSimple)
 {   
     int t = 1;
-    polygon p1(t);
+    Polygon p1;
     EXPECT_EQ(1, t);
 }

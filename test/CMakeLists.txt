@@ -24,7 +24,6 @@ add_executable(
     testPolygonControl.cpp
 )
 
-
 set(LIBS gtest_main octagramLib)
 
 #https://google.github.io/googletest/quickstart-cmake.html

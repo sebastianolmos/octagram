@@ -33,9 +33,13 @@ class Segment
         bool left(const Point<T>& point);
         bool right(const Point<T>& point);
         bool colinear(const Point<T>& point);
+        float getSlope();
+        bool checkIntersection(T axis);
+        double getIntersection(T axis);
     private:
         Point<T>* mOrigin;
         Point<T>* mEnd;
+        double EPSILON = 1E-6;
 };
 
 template<class T>
@@ -155,3 +159,46 @@ bool Segment<T>::colinear(const Point<T>& point)
     }
 }
 
+template<class T>
+float Segment<T>::getSlope(){
+    float dX = mEnd->getX() - mOrigin->getX();
+    float dY = mEnd->getY() - mOrigin->getY();
+
+    if (dX == 0 || dY == 0) {
+        return 0;
+    }
+    else {
+        return dY/dX;
+    }
+}
+
+template<class T>
+bool Segment<T>::checkIntersection(T axis){
+    if (mOrigin->getY() > 0){
+        if (mEnd->getY() < 0 || mEnd->getY() == 0){
+            return true
+        } 
+        T tmpY = mEnd->getY();
+        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < 0 ? 0 : fabs(tmpY)) * EPSILON);
+        return equal;
+    }
+    else if (mEnd->getX() > 0) {
+        if (mOrigin->getY() < 0 || mOrigin->getY() == 0 ) {
+            return true
+        }
+        T tmpY = mOrigin->getY();
+        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < 0 ? 0 : fabs(tmpY)) * EPSILON);
+        return equal;
+    }
+    
+    return false;
+}
+
+template<class T>
+double Segment<T>::getIntersection(T axis){
+    float m = getSlope();
+    if (getSlope == 0){
+        return 0;
+    }
+    return mOrigin->getX() + (axis - mOrigin->getY())/m;
+}

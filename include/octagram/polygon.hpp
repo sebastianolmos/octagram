@@ -19,19 +19,25 @@ template<class T>
 class Polygon
 {
     public:
+        Polygon();
         Polygon(Point<T>& point);
         ~Polygon();
+        int getCount();
         void addPoint(Point<T>& point);
         friend ostream& operator<< <>(ostream& os, const Polygon<T>& polygon);
         T getArea2();
         float getArea();
-        int getCount();
         bool isCCW();
         bool isInBorder(Point<T>& point);
         bool isInside(Point<T>& point);
     private:
         vector<Point<T>> points;
 };
+
+template<class T>
+Polygon<T>::Polygon()
+{}
+
 
 template<class T>
 Polygon<T>::Polygon(Point<T>& point)
@@ -69,7 +75,10 @@ ostream& operator<<(ostream& os, const Polygon<T>& polygon)
 
 template<class T>
 T Polygon<T>::getArea2()
-{
+{   
+    if (getCount() == 0){
+        return (T)0;
+    }
 	T sum = 0;
     for (int i = 1; i < (points.size() - 1); i++){
         Vector<T> vecA1(points[0], points[i]);
@@ -82,15 +91,15 @@ T Polygon<T>::getArea2()
 
 template<class T>
 float Polygon<T>::getArea()
-{
+{   
 	T area2 = getArea2();
-    return area2 * 0.5f;
+    return fabs(area2 * 0.5f);
 }
 
 template<class T>
 int Polygon<T>::getCount()
 {
-	return points.size()
+	return points.size();
 }
 
 template<class T>
@@ -104,7 +113,7 @@ template<class T>
 bool Polygon<T>::isInBorder(Point<T>& point)
 {
     for (int i = 0; i < points.size(); i++){
-		Segment<T> seg(points[i], points[(i + 1]) % points.size());
+		Segment<T> seg(points[i], points[(i + 1) % points.size()]);
 		if (seg.colinear(point)) {
             return true;
         }
@@ -122,7 +131,7 @@ bool Polygon<T>::isInside(Point<T>& point)
     int Rcross = 0;
     T axis = point.getY();
     for (int i = 0; i < points.size(); i++){
-		Segment<T> seg(points[i], points[(i + 1]) % points.size());
+		Segment<T> seg(points[i], points[(i + 1) % points.size()]);
 		if (seg.checkIntersection(axis)) {
             double x = seg.getIntersection(axis);
 

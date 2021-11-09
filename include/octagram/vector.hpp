@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string> 
 #include <math.h> 
+#include <type_traits>
 #include "point.hpp"
 using std::ostream;
 
@@ -168,42 +169,42 @@ float Vector<T>::getMagnitude()
 	return sqrt(this->getMagnitude2());
 }
 
+
 template<class T>
 void Vector<T>::normalize()
 {
-	T magnitude = (T)(this->getMagnitude());
-	
-	this->mX = (this->mX / magnitude);
-	this->mY = (this->mY / magnitude);
-	this->mZ = (this->mZ / magnitude);
-}
-
-template<>
-void Vector<int>::normalize()
-{
-    if (fabs(this->mX) > fabs(this->mY) && fabs(this->mX) > fabs(this->mZ)){
-        int sgn = (this->mX > 0) ? 1 : ((this->mX < 0) ? -1 : 0);
-        this->mX = sgn;
-        this->mY = 0;
-        this->mZ = 0;
-    }
-    else if (fabs(this->mY) > fabs(this->mX) && fabs(this->mY) > fabs(this->mZ)){
-        int sgn = (this->mY > 0) ? 1 : ((this->mY < 0) ? -1 : 0);
-        this->mX = 0;
-        this->mY = sgn;
-        this->mZ = 0;
-    }
-    else if (fabs(this->mZ) > fabs(this->mX) && fabs(this->mZ) > fabs(this->mY)){
-        int sgn = (this->mZ > 0) ? 1 : ((this->mZ < 0) ? -1 : 0);
-        this->mX = 0;
-        this->mY = 0;
-        this->mZ = sgn;
-    }
+    if (is_same<T, int>::value) {
+        if (fabs(this->mX) > fabs(this->mY) && fabs(this->mX) > fabs(this->mZ)){
+            int sgn = (this->mX > 0) ? 1 : ((this->mX < 0) ? -1 : 0);
+            this->mX = sgn;
+            this->mY = 0;
+            this->mZ = 0;
+        }
+        else if (fabs(this->mY) > fabs(this->mX) && fabs(this->mY) > fabs(this->mZ)){
+            int sgn = (this->mY > 0) ? 1 : ((this->mY < 0) ? -1 : 0);
+            this->mX = 0;
+            this->mY = sgn;
+            this->mZ = 0;
+        }
+        else if (fabs(this->mZ) > fabs(this->mX) && fabs(this->mZ) > fabs(this->mY)){
+            int sgn = (this->mZ > 0) ? 1 : ((this->mZ < 0) ? -1 : 0);
+            this->mX = 0;
+            this->mY = 0;
+            this->mZ = sgn;
+        }
+        else {
+            this->mX = 0;
+            this->mY = 0;
+            this->mZ = 0;
+        }
+    } 
     else {
-        this->mX = 0;
-        this->mY = 0;
-        this->mZ = 0;
+        T magnitude = (T)(this->getMagnitude());
+        this->mX = (this->mX / magnitude);
+        this->mY = (this->mY / magnitude);
+        this->mZ = (this->mZ / magnitude);
     }
+	
 }
 
 template<class T>

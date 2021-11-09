@@ -52,15 +52,15 @@ Segment<T>::Segment()
 template<class T>
 Segment<T>::Segment(Point<T>& fromPoint, Point<T>& toPoint)
 {
-    this->mOrigin = new Point<int>(fromPoint);
-    this->mEnd = new Point<int>(toPoint);
+    this->mOrigin = new Point<T>(fromPoint);
+    this->mEnd = new Point<T>(toPoint);
 }
 
 template<class T>
 Segment<T>::Segment(T originX, T originY, T endX, T endY)
 {
-    this->mOrigin = new Point<int>(originX, originY);
-    this->mEnd = new Point<int>(endX, endY);
+    this->mOrigin = new Point<T>(originX, originY);
+    this->mEnd = new Point<T>(endX, endY);
 }
 
 template<class T>
@@ -174,20 +174,20 @@ float Segment<T>::getSlope(){
 
 template<class T>
 bool Segment<T>::checkIntersection(T axis){
-    if (mOrigin->getY() > 0){
-        if (mEnd->getY() < 0 || mEnd->getY() == 0){
-            return true
+    if (mOrigin->getY() > axis){
+        if (mEnd->getY() < axis || mEnd->getY() == axis){
+            return true;
         } 
         T tmpY = mEnd->getY();
-        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < 0 ? 0 : fabs(tmpY)) * EPSILON);
+        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < axis ? axis : fabs(tmpY)) * EPSILON);
         return equal;
     }
-    else if (mEnd->getX() > 0) {
-        if (mOrigin->getY() < 0 || mOrigin->getY() == 0 ) {
-            return true
+    else if (mEnd->getY() > axis) {
+        if (mOrigin->getY() < axis || mOrigin->getY() == axis ) {
+            return true;
         }
         T tmpY = mOrigin->getY();
-        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < 0 ? 0 : fabs(tmpY)) * EPSILON);
+        bool equal = fabs(tmpY) <= ( (fabs(tmpY) < axis ? axis : fabs(tmpY)) * EPSILON);
         return equal;
     }
     
@@ -196,9 +196,16 @@ bool Segment<T>::checkIntersection(T axis){
 
 template<class T>
 double Segment<T>::getIntersection(T axis){
+    if (mOrigin->getX() == mEnd->getX()){
+        return (double)(mOrigin->getX());
+    }
+    else if (fabs(mOrigin->getX() - mEnd->getX()) <= ( (fabs(mOrigin->getX()) < fabs(mEnd->getX()) ? fabs(mEnd->getX()) : fabs(mOrigin->getX())) * EPSILON)) {
+        return (double)(mOrigin->getX());
+    }
+
     float m = getSlope();
-    if (getSlope == 0){
-        return 0;
+    if (m == 0){
+        return 0.0;
     }
     return mOrigin->getX() + (axis - mOrigin->getY())/m;
 }

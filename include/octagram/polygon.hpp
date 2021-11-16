@@ -14,6 +14,9 @@ class Polygon;
 
 template<class T>
 ostream& operator<< (ostream& os, const Polygon<T>& polygon);
+template<class T>
+bool operator==(const Polygon<T>& poly1, const Polygon<T>& poly2);
+
 
 template<class T>
 class Polygon
@@ -25,6 +28,7 @@ class Polygon
         int getCount();
         void addPoint(Point<T>& point);
         friend ostream& operator<< <>(ostream& os, const Polygon<T>& polygon);
+        friend bool operator==<T>(const Polygon<T>& poly1, const Polygon<T>& poly2);
         T getArea2();
         float getArea();
         bool isCCW();
@@ -53,7 +57,10 @@ Polygon<T>::~Polygon()
 
 template<class T>
 void Polygon<T>::addPoint(Point<T>& point)
-{
+{   
+    if (points.size() > 0 && points.back() == point){
+        return;
+    }
 	points.push_back(point);
 }
 
@@ -71,6 +78,29 @@ ostream& operator<<(ostream& os, const Polygon<T>& polygon)
 	}
 	os << ")";
 	return os;
+}
+
+template<class T>
+bool operator==(const Polygon<T>& poly1, const Polygon<T>& poly2)
+{
+    int count1 = poly1.points.size();
+    int count2 = poly2.points.size();
+    if (count1 != count2){
+        return false;
+    }
+
+    for (int i=0; i < count1; i++){
+        int c = 0;
+        for (int j=0; j < count2; j++){
+            if (poly1.points[(i+ j)%count1] == poly2.points[j]){
+                c++;
+            }
+        }
+        if (c == count1){
+            return true;
+        }
+    }
+    return false;
 }
 
 template<class T>

@@ -286,8 +286,7 @@ TEST(intPolygon, InsideTest3)
 	Point<int> p4(3, 5);
 	testPoly.addPoint(p4);
 
-    Point<int> p5(-1, 2);
-	testPoly.addPoint(p5);
+	testPoly.addPoint(Point<int>(-1,2));
 
     Point<int> q1(-4, 3);
     Point<int> q2(2, 3);
@@ -304,4 +303,86 @@ TEST(intPolygon, InsideTest3)
     EXPECT_FALSE(testPoly.isInside(r1));
     EXPECT_FALSE(testPoly.isInside(r2));
     EXPECT_FALSE(testPoly.isInside(r3));
+}
+
+TEST(intPolygon, EqualTest1)
+{   
+    Polygon<int> poly1;
+	poly1.addPoint(Point<int>(-4, 5));
+	poly1.addPoint(Point<int>(-5, 1));
+	poly1.addPoint(Point<int>( 0,-2));
+	poly1.addPoint(Point<int>( 4, 2));
+	poly1.addPoint(Point<int>( 3, 5));
+	poly1.addPoint(Point<int>(-1, 2));
+
+	Polygon<int> poly2;
+	poly2.addPoint(Point<int>(-4, 5));
+	poly2.addPoint(Point<int>(-5, 1));
+	poly2.addPoint(Point<int>( 0,-2));
+	poly2.addPoint(Point<int>( 4, 2));
+	poly2.addPoint(Point<int>( 3, 5));
+	poly2.addPoint(Point<int>(-1, 2));
+
+    EXPECT_TRUE(poly1 == poly2);
+}
+
+TEST(intPolygon, EqualTest2)
+{   
+    Polygon<int> poly1;
+	poly1.addPoint(Point<int>(-4, 5));
+	poly1.addPoint(Point<int>(-5, 1));
+	poly1.addPoint(Point<int>( 0,-2));
+	poly1.addPoint(Point<int>( 4, 2));
+	poly1.addPoint(Point<int>( 3, 5));
+	poly1.addPoint(Point<int>(-1, 2));
+
+	Polygon<int> poly2;
+	poly2.addPoint(Point<int>( 4, 2));
+	poly2.addPoint(Point<int>( 3, 5));
+	poly2.addPoint(Point<int>(-1, 2));
+	poly2.addPoint(Point<int>(-4, 5));
+	poly2.addPoint(Point<int>(-5, 1));
+	poly2.addPoint(Point<int>( 0,-2));
+
+    EXPECT_TRUE(poly1 == poly2);
+}
+
+TEST(intPolygon, NotEqualTest1)
+{   
+    Polygon<int> poly1;
+	poly1.addPoint(Point<int>(-4, 5));
+	poly1.addPoint(Point<int>(-5, 1));
+	poly1.addPoint(Point<int>( 0,-2));
+	poly1.addPoint(Point<int>( 4, 2));
+	poly1.addPoint(Point<int>( 3, 5));
+	poly1.addPoint(Point<int>(-1, 2));
+
+	Polygon<int> poly2;
+	poly2.addPoint(Point<int>( 4, 2));
+	poly2.addPoint(Point<int>( 3, 5));
+	poly2.addPoint(Point<int>(-1, 2));
+	poly2.addPoint(Point<int>(-4, 5));
+
+    EXPECT_FALSE(poly1 == poly2);
+}
+
+TEST(intPolygon, NotEqualTest2)
+{   
+    Polygon<int> poly1;
+	poly1.addPoint(Point<int>(-4, 5));
+	poly1.addPoint(Point<int>(-5, 1));
+	poly1.addPoint(Point<int>( 0,-2));
+	poly1.addPoint(Point<int>( 4, 2));
+	poly1.addPoint(Point<int>( 3, 5));
+	poly1.addPoint(Point<int>(-1, 2));
+
+	Polygon<int> poly2;
+	poly2.addPoint(Point<int>( 4, 2));
+	poly2.addPoint(Point<int>( 3, 5));
+	poly2.addPoint(Point<int>(-1, 2));
+	poly2.addPoint(Point<int>(-4, 5));
+	poly2.addPoint(Point<int>( 0,-2));
+	poly2.addPoint(Point<int>(-5, 1));
+
+    EXPECT_FALSE(poly1 == poly2);
 }

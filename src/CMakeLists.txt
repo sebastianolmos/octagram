@@ -1,3 +1,5 @@
+add_subdirectory(algorithm)
+
 set(HPP_LIST 
     "${PROJECT_SOURCE_DIR}/include/octagram/polygon.hpp"
     "${PROJECT_SOURCE_DIR}/include/octagram/point.hpp"
@@ -8,4 +10,6 @@ set(HPP_LIST
 #add_library(octagramLib ${CPP_LIST} ${HEADER_LIST})
 add_library(octagramLib INTERFACE ${HEADER_LIST})
 #target_include_directories(octagramLib PUBLIC ../include)
-target_include_directories(octagramLib INTERFACE ../include)
+target_include_directories(octagramLib INTERFACE ${PROJECT_SOURCE_DIR}/include)
+
+target_link_libraries(octagramLib INTERFACE algorithmLib)

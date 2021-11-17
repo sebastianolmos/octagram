@@ -1,3 +1,4 @@
+add_subdirectory(algorithm)
 
 add_executable(
     PointClassTests

@@ -53,6 +53,7 @@
         "xutility": "cpp",
         "ratio": "cpp",
         "utility": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "stack": "cpp"
     }
 }

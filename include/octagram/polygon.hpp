@@ -26,6 +26,7 @@ class Polygon
         Polygon(Point<T>& point);
         ~Polygon();
         int getCount();
+        Point<T> getPoint(int index);
         void addPoint(Point<T>& point);
         friend ostream& operator<< <>(ostream& os, const Polygon<T>& polygon);
         friend bool operator==<T>(const Polygon<T>& poly1, const Polygon<T>& poly2);
@@ -130,6 +131,12 @@ template<class T>
 int Polygon<T>::getCount()
 {
 	return points.size();
+}
+
+template<class T>
+Point<T> Polygon<T>::getPoint(int index)
+{
+	return points[index];
 }
 
 template<class T>

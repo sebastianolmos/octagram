@@ -17,6 +17,7 @@
 mono_crash.*
 
 # Build results
+samples/points/
 bin/
 build/
 [Dd]ebug/

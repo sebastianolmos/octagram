@@ -54,6 +54,24 @@
         "ratio": "cpp",
         "utility": "cpp",
         "xtr1common": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "random": "cpp",
+        "bit": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "concepts": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "format": "cpp",
+        "iomanip": "cpp",
+        "new": "cpp",
+        "string": "cpp",
+        "xstddef": "cpp"
     }
 }

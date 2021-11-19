@@ -150,6 +150,9 @@ template<class T>
 bool Polygon<T>::isInBorder(Point<T>& point)
 {
     for (int i = 0; i < points.size(); i++){
+        if (points[i] == point) {
+            return true;
+        }
 		Segment<T> seg(points[i], points[(i + 1) % points.size()]);
 		if (seg.colinear(point)) {
             return true;

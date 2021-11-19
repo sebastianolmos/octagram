@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
     int n;
     std::string dist;
     int algorithm;
+    std::string algorithmName;
 
     /*
     first parameter is for picking the distribution
@@ -81,9 +82,11 @@ int main(int argc, char *argv[]){
     {
     case 0:
         algorithm = 0;
+        algorithmName = "GF_";
         break;
     case 1:
         algorithm = 1;
+        algorithmName = "GH_";
         break;
     default:
         return 0;
@@ -97,6 +100,18 @@ int main(int argc, char *argv[]){
     filesToRead.append(dist);
     filesToRead.append(b);
     filesToRead.append(c);
+
+    std::string fileToWrite;
+    std::string w_a = "../../samples/times/";
+    std::string w_c = ".txt";
+    fileToWrite.append(w_a);
+    fileToWrite.append(dist);
+    fileToWrite.append(algorithmName);
+    fileToWrite.append(c);
+    fileToWrite.append(w_c);
+
+    std::ofstream outFile;
+    outFile.open(fileToWrite);
 
     int samples = 10;
     for (int i = 0; i < samples; i++){
@@ -132,10 +147,13 @@ int main(int argc, char *argv[]){
             hull = grahamScan(points, n);
             timer.stop();
         }
+        outFile << timer.elapsedMilliseconds() << "\n";
         
         std::cout << "-------> Points procceced <--------"<< std::endl;
-        std::cout << "c: " << c << std::endl;
+        std::cout << "c: " << 2.356 << std::endl;
         std::cout << "time: " << (double)timer.elapsedMilliseconds() << std::endl;
         std::cout << "hull size: " << hull.getCount() << std::endl;
     }
+    outFile.close();
+    return 0;
 }

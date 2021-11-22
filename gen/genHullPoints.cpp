@@ -7,7 +7,7 @@ int main(){
     int sizes[5] = {100, 1000, 10000, 100000, 1000000};
     int samples = 10;
     for (int i = 0; i < 5; i++){
-        std::string a = "../../samples/points/hull_";
+        std::string a = "../samples/points/hull_";
         std::string b =  std::to_string(pNames[i]);
         for (int j = 0; j < 5; j++){
             std::string c = "/p_";

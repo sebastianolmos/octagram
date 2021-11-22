@@ -173,7 +173,7 @@ float Vector<T>::getMagnitude()
 template<class T>
 void Vector<T>::normalize()
 {
-    if (is_same<T, int>::value) {
+    if (std::is_same<T, int>::value) {
         if (fabs(this->mX) > fabs(this->mY) && fabs(this->mX) > fabs(this->mZ)){
             int sgn = (this->mX > 0) ? 1 : ((this->mX < 0) ? -1 : 0);
             this->mX = sgn;

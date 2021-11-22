@@ -13,7 +13,6 @@ add_executable(
     runConvexHull.cpp
 )
 
-
 target_link_libraries(genRandomPoints octagramLib)
 target_link_libraries(genHullPoints octagramLib)
 target_link_libraries(runConvexHull octagramLib)

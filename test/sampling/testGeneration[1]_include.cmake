@@ -1,0 +1,5 @@
+if(EXISTS "/home/sebastolmos/projects/octagram/test/sampling/testGeneration[1]_tests.cmake")
+  include("/home/sebastolmos/projects/octagram/test/sampling/testGeneration[1]_tests.cmake")
+else()
+  add_test(testGeneration_NOT_BUILT testGeneration_NOT_BUILT)
+endif()

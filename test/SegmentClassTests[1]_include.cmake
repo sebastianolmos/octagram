@@ -1,0 +1,5 @@
+if(EXISTS "/home/sebastolmos/projects/octagram/test/SegmentClassTests[1]_tests.cmake")
+  include("/home/sebastolmos/projects/octagram/test/SegmentClassTests[1]_tests.cmake")
+else()
+  add_test(SegmentClassTests_NOT_BUILT SegmentClassTests_NOT_BUILT)
+endif()

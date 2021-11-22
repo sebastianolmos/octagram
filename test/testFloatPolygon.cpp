@@ -317,20 +317,20 @@ TEST(FloatPolygon, InsideTest3)
 TEST(FloatPolygon, EqualTest1)
 {   
     Polygon<float> poly1;
-	poly1.addPoint(Point<float>(-4.0f, 5.0f));
-	poly1.addPoint(Point<float>(-5.0f, 1.0f));
-	poly1.addPoint(Point<float>( 0.0f,-2.0f));
-	poly1.addPoint(Point<float>( 4.0f, 2.0f));
-	poly1.addPoint(Point<float>( 3.0f, 5.0f));
-	poly1.addPoint(Point<float>(-1.0f, 2.0f));
+	poly1.addPoint(-4.0f, 5.0f);
+	poly1.addPoint(-5.0f, 1.0f);
+	poly1.addPoint( 0.0f,-2.0f);
+	poly1.addPoint( 4.0f, 2.0f);
+	poly1.addPoint(3.0f, 5.0f);
+	poly1.addPoint(-1.0f, 2.0f);
 
 	Polygon<float> poly2;
-	poly2.addPoint(Point<float>(-4.0f, 5.0f));
-	poly2.addPoint(Point<float>(-5.0f, 1.0f));
-	poly2.addPoint(Point<float>( 0.0f,-2.0f));
-	poly2.addPoint(Point<float>( 4.0f, 2.0f));
-	poly2.addPoint(Point<float>( 3.0f, 5.0f));
-	poly2.addPoint(Point<float>(-1.0f, 2.0f));
+	poly2.addPoint(-4.0f, 5.0f);
+	poly2.addPoint(-5.0f, 1.0f);
+	poly2.addPoint( 0.0f,-2.0f);
+	poly2.addPoint( 4.0f, 2.0f);
+	poly2.addPoint( 3.0f, 5.0f);
+	poly2.addPoint(-1.0f, 2.0f);
 
     EXPECT_TRUE(poly1 == poly2);
 }
@@ -338,20 +338,20 @@ TEST(FloatPolygon, EqualTest1)
 TEST(FloatPolygon, EqualTest2)
 {   
     Polygon<float> poly1;
-	poly1.addPoint(Point<float>(-4.0f, 5.0f));
-	poly1.addPoint(Point<float>(-5.0f, 1.0f));
-	poly1.addPoint(Point<float>( 0.0f,-2.0f));
-	poly1.addPoint(Point<float>( 4.0f, 2.0f));
-	poly1.addPoint(Point<float>( 3.0f, 5.0f));
-	poly1.addPoint(Point<float>(-1.0f, 2.0f));
+	poly1.addPoint(-4.0f, 5.0f);
+	poly1.addPoint(-5.0f, 1.0f);
+	poly1.addPoint( 0.0f,-2.0f);
+	poly1.addPoint( 4.0f, 2.0f);
+	poly1.addPoint( 3.0f, 5.0f);
+	poly1.addPoint(-1.0f, 2.0f);
 
 	Polygon<float> poly2;
-	poly2.addPoint(Point<float>( 4.0f, 2.0f));
-	poly2.addPoint(Point<float>( 3.0f, 5.0f));
-	poly2.addPoint(Point<float>(-1.0f, 2.0f));
-	poly2.addPoint(Point<float>(-4.0f, 5.0f));
-	poly2.addPoint(Point<float>(-5.0f, 1.0f));
-	poly2.addPoint(Point<float>( 0.0f,-2.0f));
+	poly2.addPoint( 4.0f, 2.0f);
+	poly2.addPoint( 3.0f, 5.0f);
+	poly2.addPoint(-1.0f, 2.0f);
+	poly2.addPoint(-4.0f, 5.0f);
+	poly2.addPoint(-5.0f, 1.0f);
+	poly2.addPoint( 0.0f,-2.0f);
 
     EXPECT_TRUE(poly1 == poly2);
 }
@@ -359,18 +359,18 @@ TEST(FloatPolygon, EqualTest2)
 TEST(FloatPolygon, NotEqualTest1)
 {   
     Polygon<float> poly1;
-	poly1.addPoint(Point<float>(-4.0f, 5.0f));
-	poly1.addPoint(Point<float>(-5.0f, 1.0f));
-	poly1.addPoint(Point<float>( 0.0f,-2.0f));
-	poly1.addPoint(Point<float>( 4.0f, 2.0f));
-	poly1.addPoint(Point<float>( 3.0f, 5.0f));
-	poly1.addPoint(Point<float>(-1.0f, 2.0f));
+	poly1.addPoint(-4.0f, 5.0f);
+	poly1.addPoint(-5.0f, 1.0f);
+	poly1.addPoint( 0.0f,-2.0f);
+	poly1.addPoint( 4.0f, 2.0f);
+	poly1.addPoint( 3.0f, 5.0f);
+	poly1.addPoint(-1.0f, 2.0f);
 
 	Polygon<float> poly2;
-	poly2.addPoint(Point<float>( 4.0f, 2.0f));
-	poly2.addPoint(Point<float>( 3.0f, 5.0f));
-	poly2.addPoint(Point<float>(-1.0f, 2.0f));
-	poly2.addPoint(Point<float>(-4.0f, 5.0f));
+	poly2.addPoint( 4.0f, 2.0f);
+	poly2.addPoint( 3.0f, 5.0f);
+	poly2.addPoint(-1.0f, 2.0f);
+	poly2.addPoint(-4.0f, 5.0f);
 
     EXPECT_FALSE(poly1 == poly2);
 }
@@ -378,20 +378,20 @@ TEST(FloatPolygon, NotEqualTest1)
 TEST(FloatPolygon, NotEqualTest2)
 {   
     Polygon<float> poly1;
-	poly1.addPoint(Point<float>(-4.0f, 5.0f));
-	poly1.addPoint(Point<float>(-5.0f, 1.0f));
-	poly1.addPoint(Point<float>( 0.0f,-2.0f));
-	poly1.addPoint(Point<float>( 4.0f, 2.0f));
-	poly1.addPoint(Point<float>( 3.0f, 5.0f));
-	poly1.addPoint(Point<float>(-1.0f, 2.0f));
+	poly1.addPoint(-4.0f, 5.0f);
+	poly1.addPoint(-5.0f, 1.0f);
+	poly1.addPoint( 0.0f,-2.0f);
+	poly1.addPoint( 4.0f, 2.0f);
+	poly1.addPoint( 3.0f, 5.0f);
+	poly1.addPoint(-1.0f, 2.0f);
 
 	Polygon<float> poly2;
-	poly2.addPoint(Point<float>( 4.0f, 2.0f));
-	poly2.addPoint(Point<float>( 3.0f, 5.0f));
-	poly2.addPoint(Point<float>(-1.0f, 2.0f));
-	poly2.addPoint(Point<float>(-4.0f, 5.0f));
-	poly2.addPoint(Point<float>( 0.0f,-2.0f));
-	poly2.addPoint(Point<float>(-5.0f, 1.0f));
+	poly2.addPoint( 4.0f, 2.0f);
+	poly2.addPoint( 3.0f, 5.0f);
+	poly2.addPoint(-1.0f, 2.0f);
+	poly2.addPoint(-4.0f, 5.0f);
+	poly2.addPoint( 0.0f,-2.0f);
+	poly2.addPoint(-5.0f, 1.0f);
 
     EXPECT_FALSE(poly1 == poly2);
 }

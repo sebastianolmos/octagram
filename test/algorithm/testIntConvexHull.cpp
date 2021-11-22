@@ -21,13 +21,13 @@ TEST(intConvexHull, giftWrappingTest1)
         };
 
     Polygon<int> expectedPoly;
-    expectedPoly.addPoint(Point<int>( 2, 2));
-    expectedPoly.addPoint(Point<int>( 8, 2));
-    expectedPoly.addPoint(Point<int>( 11, 5));
-    expectedPoly.addPoint(Point<int>( 13, 11));
-    expectedPoly.addPoint(Point<int>( 11, 13));
-    expectedPoly.addPoint(Point<int>( 8, 13));
-    expectedPoly.addPoint(Point<int>( 2, 12));
+    expectedPoly.addPoint(2, 2);
+    expectedPoly.addPoint( 8, 2);
+    expectedPoly.addPoint( 11, 5);
+    expectedPoly.addPoint( 13, 11);
+    expectedPoly.addPoint( 11, 13);
+    expectedPoly.addPoint( 8, 13);
+    expectedPoly.addPoint( 2, 12);
 
     Polygon<int> resultPoly = giftWrapping<int>(testPoints, 15);
     EXPECT_EQ(resultPoly.getCount(), 7);
@@ -76,13 +76,13 @@ TEST(intConvexHull, grahamScanTest1)
         };
 
     Polygon<int> expectedPoly;
-    expectedPoly.addPoint(Point<int>( 2, 2));
-    expectedPoly.addPoint(Point<int>( 8, 2));
-    expectedPoly.addPoint(Point<int>( 11, 5));
-    expectedPoly.addPoint(Point<int>( 13, 11));
-    expectedPoly.addPoint(Point<int>( 11, 13));
-    expectedPoly.addPoint(Point<int>( 8, 13));
-    expectedPoly.addPoint(Point<int>( 2, 12));
+    expectedPoly.addPoint( 2, 2);
+    expectedPoly.addPoint( 8, 2);
+    expectedPoly.addPoint( 11, 5);
+    expectedPoly.addPoint( 13, 11);
+    expectedPoly.addPoint(11, 13);
+    expectedPoly.addPoint( 8, 13);
+    expectedPoly.addPoint( 2, 12);
 
     Polygon<int> resultPoly = grahamScan<int>(testPoints, 15);
     EXPECT_EQ(resultPoly.getCount(), 7);

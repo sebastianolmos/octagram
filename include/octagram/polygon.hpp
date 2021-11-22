@@ -28,6 +28,7 @@ class Polygon
         int getCount();
         Point<T> getPoint(int index);
         void addPoint(Point<T>& point);
+        void addPoint(T x, T y);
         friend ostream& operator<< <>(ostream& os, const Polygon<T>& polygon);
         friend bool operator==<T>(const Polygon<T>& poly1, const Polygon<T>& poly2);
         T getArea2();
@@ -59,9 +60,13 @@ Polygon<T>::~Polygon()
 template<class T>
 void Polygon<T>::addPoint(Point<T>& point)
 {   
-    if (points.size() > 0 && points.back() == point){
-        return;
-    }
+	points.push_back(point);
+}
+
+template<class T>
+void Polygon<T>::addPoint(T x, T y)
+{   
+    Point<T> point(x, y);
 	points.push_back(point);
 }
 

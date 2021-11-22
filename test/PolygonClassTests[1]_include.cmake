@@ -1,0 +1,5 @@
+if(EXISTS "/home/sebastolmos/projects/octagram/test/PolygonClassTests[1]_tests.cmake")
+  include("/home/sebastolmos/projects/octagram/test/PolygonClassTests[1]_tests.cmake")
+else()
+  add_test(PolygonClassTests_NOT_BUILT PolygonClassTests_NOT_BUILT)
+endif()

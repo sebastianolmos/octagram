@@ -82,7 +82,7 @@ int main(int argc, char *argv[]){
     {
     case 0:
         algorithm = 0;
-        algorithmName = "GF_";
+        algorithmName = "GW_";
         break;
     case 1:
         algorithm = 1;
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]){
     }
 
     std::string filesToRead;
-    std::string a = "../../samples/points/";
+    std::string a = "../samples/points/";
     std::string b = "p_";
     std::string c = std::to_string(n);
     filesToRead.append(a);
@@ -102,7 +102,7 @@ int main(int argc, char *argv[]){
     filesToRead.append(c);
 
     std::string fileToWrite;
-    std::string w_a = "../../samples/times/";
+    std::string w_a = "../samples/times/";
     std::string w_c = ".txt";
     fileToWrite.append(w_a);
     fileToWrite.append(dist);
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]){
     std::ofstream outFile;
     outFile.open(fileToWrite);
 
-    int samples = 10;
+    int samples = 1;
     for (int i = 0; i < samples; i++){
         // Procces a points sample
         std::string name;
@@ -124,34 +124,37 @@ int main(int argc, char *argv[]){
         name.append(d);
         name.append(e);
         name.append(f);
-        double x, y;
+        long double x, y;
         std::ifstream inFile(name);
-        Point<double>* points = new Point<double>[n];
+        Point<long double>* points = new Point<long double>[n];
         int c = 0;
         Timer timer;
 
         while (inFile >> x >> y)
         {
             // Add points to the Polygon
-            points[c] = Point<double>(x, y);
+            points[c] = Point<long double>(x, y);
             c++;
         }
-        Polygon<double> hull;
+        Polygon<long double> hull;
         if (algorithm == 0){
             timer.start();
-            hull = giftWrapping(points, n);
+            hull = giftWrapping<long double>(points, n);
             timer.stop();
         }
         else {
             timer.start();
-            hull = grahamScan(points, n);
+            hull = grahamScan<long double>(points, n);
             timer.stop();
         }
         outFile << timer.elapsedMilliseconds() << "\n";
         
+        std::string al = algorithm?"Graham Scan ":"Gift Wrapping ";
+        
         std::cout << "-------> Points procceced <--------"<< std::endl;
-        std::cout << "c: " << 2.356 << std::endl;
+        std::cout << "c: " << c<< std::endl;
         std::cout << "time: " << (double)timer.elapsedMilliseconds() << std::endl;
+        std::cout << "Algorithm: " << al << ", with n ="  << n << ", and dist: " << dist <<std::endl;
         std::cout << "hull size: " << hull.getCount() << std::endl;
     }
     outFile.close();

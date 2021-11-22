@@ -21,11 +21,11 @@ T testsum2(T a, T b){
 // 2 --> Counterclockwise
 template <class T>
 int orientation(Point<T> p, Point<T> q, Point<T> r){
-    Segment<T> seg(p, q);
-    if (seg.colinear(r)){
-        return 0;
-    }
-    return (seg.left(r)) ? 2 : 1;
+    T val = (q.getY() - p.getY()) * (r.getX() - q.getX())  -
+            (q.getX() - p.getX()) * (r.getY() - q.getY());
+
+    if (val == 0) return 0;
+    return (val > (T)0)? 1:2;
 }
 
 template <class T>

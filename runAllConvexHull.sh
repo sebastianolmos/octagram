@@ -9,9 +9,9 @@ mkdir -p samples/times/hull_90
 
 cd bin
 
-for i in 5
+for i in 1 2 3 4 5
 do
-    for j in 1000000
+    for j in 100 1000 10000 100000 1000000
     do
         for k in 0 1
         do
